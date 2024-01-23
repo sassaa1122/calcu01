@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val textnumber: TextView = findViewById(R.id.textnumber)
+
         val plus: Button = findViewById(R.id.plus)
         val minus: Button = findViewById(R.id.minus)
         val multi: Button = findViewById(R.id.multi)
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val equal: Button = findViewById(R.id.equal)
         val clear: Button = findViewById(R.id.clear)
         val delete: Button = findViewById(R.id.delete)
+
         val num0: Button = findViewById(R.id.num0)
         val num1: Button = findViewById(R.id.num1)
         val num2: Button = findViewById(R.id.num2)
@@ -35,149 +37,206 @@ class MainActivity : AppCompatActivity() {
         val num8: Button = findViewById(R.id.num8)
         val num9: Button = findViewById(R.id.num9)
 
-        var text1 =""
+        var currentNumber = "0"
         var number1 =""
         var number2 =""
         var otext =""
+        var doot:Boolean = false
 
 
 
-        clear.setOnClickListener{
+        clear.setOnClickListener {
+            currentNumber = "0"
             textnumber.setText("0")
-            text1 =""
+            doot = false
         }
 
-        delete.setOnClickListener{
-            if (text1.length >1){
-                text1=text1.substring(0,text1.length-1)
-                textnumber.setText(text1)
+        delete.setOnClickListener {
+            if (currentNumber.length >1){
+                currentNumber = currentNumber.substring(0,currentNumber.length-1)
+                textnumber.setText(currentNumber)
             }else{
                 textnumber.setText("0")
-                text1 =""
+                currentNumber =""
             }
         }
 
-        num0.setOnClickListener{
-            if(text1 == ""){
-                text1=""
-            } else{
-                text1 +=0
-                textnumber.setText(text1)
+        num0.setOnClickListener {
+            //currentNumber = Tans.text.toString()
+            if (currentNumber == "0") {
+                currentNumber = "0"
+                textnumber.setText("0")
+            } else {
+                currentNumber += "0"
+                textnumber.text = currentNumber
             }
         }
 
-        num1.setOnClickListener{
-            text1 +=1
-            textnumber.setText(text1)
+        num1.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "1"
+                textnumber.setText("1")
+            }else{
+                currentNumber += "1"
+                textnumber.text = currentNumber
+            }
         }
 
-        num2.setOnClickListener{
-            text1 +=2
-            textnumber.setText(text1)
+        num2.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "2"
+                textnumber.setText("2")
+            }else{
+                currentNumber += "2"
+                textnumber.text = currentNumber
+            }
         }
 
-        num3.setOnClickListener{
-            text1 +=3
-            textnumber.setText(text1)
-        }
-        num4.setOnClickListener{
-            text1 +=4
-            textnumber.setText(text1)
-        }
-        num5.setOnClickListener{
-            text1 +=5
-            textnumber.setText(text1)
-        }
-        num6.setOnClickListener{
-            text1 +=6
-            textnumber.setText(text1)
-        }
-        num7.setOnClickListener{
-            text1 +=7
-            textnumber.setText(text1)
-        }
-        num8.setOnClickListener{
-            text1 +=8
-            textnumber.setText(text1)
-        }
-        num9.setOnClickListener{
-            text1 +=9
-            textnumber.setText(text1)
+        num3.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "3"
+                textnumber.setText("3")
+            }else{
+                currentNumber += "3"
+                textnumber.text = currentNumber
+            }
         }
 
-//        plus.setOnClickListener{
-//            text2=text1.toInt()
-//            text3 +="+"
-//            text1 =""
-//            textnumber.setText(text3)
-//        }
-//
-//        equal.setOnClickListener{
-//            if(text3 == "+"){
-//                var number1= text1.
-//                textnumber.setText(text1)
-//            }
-//        }
+        num4.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "4"
+                textnumber.setText("4")
+            }else{
+                currentNumber += "4"
+                textnumber.text = currentNumber
+            }
+        }
 
+        num5.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "5"
+                textnumber.setText("5")
+            }else{
+                currentNumber += "5"
+                textnumber.text = currentNumber
+            }
+        }
+
+        num6.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "6"
+                textnumber.setText("6")
+            }else{
+                currentNumber += "6"
+                textnumber.text = currentNumber
+            }
+        }
+
+        num7.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "7"
+                textnumber.setText("7")
+            }else{
+                currentNumber += "7"
+                textnumber.text = currentNumber
+            }
+        }
+
+        num8.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "8"
+                textnumber.setText("7")
+            }else{
+                currentNumber += "8"
+                textnumber.text = currentNumber
+            }
+        }
+
+        num9.setOnClickListener {
+            if(currentNumber == "0"){
+                currentNumber = "9"
+                textnumber.setText("9")
+            }else{
+                currentNumber += "9"
+                textnumber.text = currentNumber
+            }
+        }
+
+        point.setOnClickListener {
+            if (doot == false) {
+                currentNumber += "."
+                textnumber.setText(currentNumber)
+                doot = true
+            }
+        }
 
         plus.setOnClickListener {
             otext = "+"
-            number1 = text1
-            text1 = ""
+            number1 = currentNumber
+            currentNumber = ""
             textnumber.text = "0"
+            doot = false
         }
 
         minus.setOnClickListener {
             otext = "-"
-            number1 = text1
-            text1 = ""
+            number1 = currentNumber
+            currentNumber = ""
             textnumber.text = "0"
+            doot = false
         }
 
         multi.setOnClickListener {
             otext = "*"
-            number1 = text1
-            text1 = ""
+            number1 = currentNumber
+            currentNumber = ""
             textnumber.text = "0"
+            doot = false
         }
 
         divider.setOnClickListener {
             otext = "/"
-            number1 = text1
-            text1 = ""
+            number1 = currentNumber
+            currentNumber = ""
             textnumber.text = "0"
+            doot = false
         }
 
         mod.setOnClickListener {
             otext = "%"
-            number1 = text1
-            text1 = ""
+            number1 = currentNumber
+            currentNumber = ""
             textnumber.text = "0"
+            doot = false
         }
 
         equal.setOnClickListener {
-            number2 = text1
+            number2 = currentNumber
             var result = 0.0
-            try {
-                when (otext) {
-                    "+" -> result = number1.toDouble() + number2.toDouble()
-                    "-" -> result = number1.toDouble() - number2.toDouble()
-                    "*" -> result = number1.toDouble() * number2.toDouble()
-                    "/" -> {
-                        if (number2.toDouble() == 0.0) {
-                            textnumber.text = "Error: Division by zero"
-                        } else {
-                            result = number1.toDouble() / number2.toDouble()
-                        }
-                    }
-                    "%" -> result = number1.toDouble() % number2.toDouble()
-                }
-                textnumber.text = result.toString() // Display the result
-            } catch (e: NumberFormatException) {
-                textnumber.text = "Error: Invalid input"
+
+            when (otext) {
+
+                "+" -> result = number1.toDouble() + number2.toDouble()
+                "-" -> result = number1.toDouble() - number2.toDouble()
+                "*" -> result = number1.toDouble() * number2.toDouble()
+                "/" -> result = number1.toDouble() / number2.toDouble()
+                "%" -> result = number1.toDouble() % number2.toDouble()
             }
+            if(result.toString() == "Infinity" ) {
+                textnumber.text = "Error: Division by zero"
+            }else {
+                textnumber.text = result.toString() // Display the result
+            }
+
+
+//นำค่า result มาทำการคำนวณเพิ่ม เนื่องจากตอนแรก มันเอา number 2 มา +กับ ค่าที่พิมพ์ล่าสุด เราจึงต้อง เก็บค่า result ให้เป็น number1 เพื่อที่จะนำมา + กับ number 2
+            number1 = result.toString()
+            currentNumber = result.toString()
+        }
         }
     }
-}
+
+
+
 
 
